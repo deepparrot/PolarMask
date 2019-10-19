@@ -2,7 +2,7 @@
 source /workspace/venv/bin/activate
 PYTHON=${PYTHON:-"python"}
 
-pip install torch
+pip install torch==1.2.0
 
 apt-get git
 git clone https://github.com/NVIDIA/apex
