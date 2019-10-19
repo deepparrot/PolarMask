@@ -269,6 +269,7 @@ def evaluate_model(model_name, paper_arxiv_id, weights_url, weights_name, paper_
 
     # build the dataloader
     # TODO: support multiple images per gpu (only minor changes are needed)
+    print(cfg.data.test)
     dataset = build_dataset(cfg.data.test)
     data_loader = build_dataloader(
         dataset,
@@ -344,10 +345,28 @@ model_configs = []
 # REPPOINTS
 
 model_configs.append(
+    {'model_name': 'PolarMask (ResNeXt-50, multi-scale)', 
+     'paper_arxiv_id': '1909.13226',
+     'weights_url': 'https://github.com/deepparrot/PolarMask/releases/download/0.2/r50_2x_ms.pth',
+     'weights_name': 'r50_2x_ms.pth',
+     'config': './configs/polarmask/32gpu/polar_640_800_2x_r50.py',
+    'paper_results': None}
+)
+
+model_configs.append(
+    {'model_name': 'PolarMask (ResNet-101, multi-scale)', 
+     'paper_arxiv_id': '1909.13226',
+     'weights_url': 'https://github.com/deepparrot/PolarMask/releases/download/0.2/r101_2x_ms.pth',
+     'weights_name': 'r101_2x_ms.pth',
+     'config': './configs/polarmask/32gpu/polar_640_800_2x_r101.py',
+    'paper_results': None}
+)
+
+model_configs.append(
     {'model_name': 'PolarMask (ResNeXt-101, multi-scale)', 
      'paper_arxiv_id': '1909.13226',
      'weights_url': 'https://github.com/deepparrot/PolarMask/releases/download/0.1/x101_2x_ms.pth',
-     'weights_name': 'reppoints_moment_r50_fpn_2x.pth',
+     'weights_name': 'x101_2x_ms.pth',
      'config': './configs/polarmask/32gpu/polar_640_800_2x_x101.py',
     'paper_results': None}
 )
